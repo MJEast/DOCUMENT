@@ -134,10 +134,10 @@ Authorization: Bearer eyJhbGciOiJ...K2Jscp8_k1XwE
 {
 
     "limit":10,             // 可选 
-		"timestamp_smaller_than":12353533231, // 可选
+	"timestamp_smaller_than":12353533231, // 可选
     "service":["niji"],     // 可选: niji 或者 main
     "job_type":["upscale"], // 可选
-		"prompt":"some text",   // 可选
+	"prompt":"some text",   // 可选
     "folders":["some_folder_id"], // 可选
     "favourite":true, // 可选
 }
@@ -210,7 +210,7 @@ Authorization: Bearer eyJhbGciOiJ...K2Jscp8_k1XwE
                 "folders": []
             },{...}
         ],
-        "total": 2
+        "total": 2  // 符合搜索条件的结果总数。此数字应大于或等于当前返回的记录数量（res的记录个数）
     }
 }
 ```

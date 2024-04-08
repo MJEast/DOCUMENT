@@ -38,8 +38,8 @@ http://164.90.147.104:8091
 ```jsx
 POST /auth/login
 {
-	"username":"abc",
-	"password":"xxxxxxxxxxxxxx"
+	"username":"abc",       // 必填，用户在界面上输入的用户名
+	"password":"xxxxxxxxxxxxxx"     // 必填，用户在界面上输入的密码
 }
 ```
 登录成功返回示例：
@@ -87,7 +87,7 @@ POST /jobs/create
 Header
 Authorization: Bearer eyJhbGciOiJ...K2Jscp8_k1XwE
 {
-    "content":"Shanghai cyberpunk"
+    "content":"Shanghai cyberpunk"      // 必填，用户用于文生图的文字
 }
 ```
 
@@ -133,13 +133,13 @@ Header
 Authorization: Bearer eyJhbGciOiJ...K2Jscp8_k1XwE
 {
 
-    "limit":10,             // 可选 
-	"timestamp_smaller_than":12353533231, // 可选
+    "limit":10,             // 可选, 限制此次查找最多返回多少个记录
+    "timestamp_smaller_than":12353533231, // 可选，限制查询条件：timestamp 小于 给定的值
     "service":["niji"],     // 可选: niji 或者 main
-    "job_type":["upscale"], // 可选
-	"prompt":"some text",   // 可选
-    "folders":["some_folder_id"], // 可选
-    "favourite":true, // 可选
+    "job_type":["upscale"], // 可选，限制查询条件：upsale 或者 variation 或者 remix 或者 blend
+    "prompt":"some text",   // 可选，限制查询条件：prompt 等于给定值
+    "folders":["some_folder_id"], // 可选, 限制查询条件：给定 folders 的 id
+    "favourite":true, // 可选，限制查询条件：favourite 的值
 }
 ```
 请求成功返回示例:
@@ -274,8 +274,8 @@ Header
 Authorization: Bearer eyJhbGciOiJ...K2Jscp8_k1XwE
 {
     "sender_id":"on-ZY5H_G6kX2YI219vcnLlbB9AM", // 可选：登录后，发起请求附带token时，非必须
-	// 2 - 5 张图片的链接，拼接成一个字符串，用空格分隔多个链接
     "content":"https://mjeast.sfo3.digitaloceanspaces.com/f052f826-0568-45a1-8797aa42-0a120c92.png https://mjeast.sfo3.digitaloceanspaces.com/f052f826-050c9268-45a1-8797-0a12.png https://mjeast.sfo3.digitaloceanspaces.com/f052f826-0568-45a1-8797-0a120c92aa42_4.png"
+    // 2 - 5 张图片的链接，拼接成一个字符串，用空格分隔多个链接
 }
 ```
 请求成功返回结果示例：
@@ -318,8 +318,9 @@ POST /jobs/describe
 Header
 Authorization: Bearer eyJhbGciOiJ...K2Jscp8_k1XwE
 {
-    "sender_id":"on-ZY5H_G6kX2YI219vcnLlbB9AM", //optional with JWT
-    "content":"https://mjeast.sfo3.digitaloceanspaces.com/f052f826-0568-45a1-8797-0a120c92aa42_4.png" // contains LINK to 1 IMAGE
+    "sender_id":"on-ZY5H_G6kX2YI219vcnLlbB9AM", // 可选：登录后，发起请求附带token时，非必须
+    "content":"https://mjeast.sfo3.digitaloceanspaces.com/f052f826-0568-45a1-8797-0a120c92aa42_4.png"
+    // 2 - 5 张图片的链接，拼接成一个字符串，用空格分隔多个链接
 }
 ```
 请求成功时返回示例:
